@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Tabs 01 - 싱글 텝</title>
+
+	<!-- css -->
+	<link rel="stylesheet" href="./assets/css/reset.min.css">
+	<link rel="stylesheet" href="./assets/css/core.min.css">
+	<link rel="stylesheet" href="./assets/css/tab-01.min.css">
+
+	<!-- vendor -->
+	<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<header id="header">
+			<div class="container">
+				<h1 class="title">Tabs 01 - 싱글 탭</h1>
+				<p class="description">가장 기본적인 탭의 사용 방식입니다.</p>
+			</div>
+		</header>
+
+		<main id="main">
+			<div class="container">
+				<h2 class="title">TAB 01</h2>
+
+				<div class="tabs">
+					<ul class="tabs-nav">
+						<li><a href="#tab01" class="active">Tab 01</a></li>
+						<li><a href="#tab02">Tab 02</a></li>
+						<li><a href="#tab03">Tab 03</a></li>
+					</ul>
+
+					<div class="tabs-content">
+						<div class="tab-common tab01 active">tab01</div>
+
+						<div class="tab-common tab02">tab02</div>
+
+						<div class="tab-common tab03">tab03</div>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script>
+		$('.tabs-nav a').on('click', function(e) {
+			e.preventDefault();
+			var t = $(this);
+			var content = $('.tabs-content');
+
+			if ( ! t.parent().hasClass('active') ) {
+				var target = t.attr('href');
+					target = target.replace('#', '');
+
+				t.parent().siblings().find('a').removeClass('active');
+				t.addClass('active');
+
+				content.find('.' + target).siblings().removeClass('active');
+				content.find('.' + target).addClass('active');
+			}
+		});
+	</script>
+</body>
+</html>

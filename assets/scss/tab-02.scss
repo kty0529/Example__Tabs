@@ -1,0 +1,57 @@
+// tabs
+$inner_padding: 30px;
+
+.tabs-nav {
+	display: flex;
+	margin: 0 0 -1px;
+	padding: 0;
+	list-style: none;
+
+	li {
+		flex: 0 0 auto;
+
+		&:not(:first-child) {
+			margin-left: -1px;
+		}
+	}
+
+	a {
+		display: flex;
+		align-items: center;
+		padding: 0 $inner_padding;
+		height: 40px;
+		font-weight: 400;
+		background-color: #fff;
+		border: 1px solid #ddd;
+
+		&.active {
+			border-bottom-color: transparent;
+			background-color: rgba(yellow, 0.5);
+		}
+	}
+}
+
+.tabs-content {
+	.tab-common {
+		display: none;
+		padding: $inner_padding;
+		border: 1px solid #ddd;
+		background-color: #fff;
+
+		&.active {
+			display: block;
+		}
+	}
+
+	[data-tab-contents="01"] {
+		background-color: rgba(red, 0.5);
+	}
+
+	[data-tab-contents="02"] {
+		background-color: rgba(blue, 0.5);
+	}
+
+	[data-tab-contents="03"] {
+		background-color: rgba(green, 0.5);
+	}
+}
